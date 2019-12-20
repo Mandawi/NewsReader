@@ -1,5 +1,4 @@
 import requests
-import pprint
 import json
 
 news_sources={'Google':"https://news.google.com/?hl=en-US&gl=US&ceid=US:en",'CNN':"https://www.cnn.com/",'Reuters':"https://www.reuters.com/news/us",'Fox':"https://www.foxnews.com/us",'ABC':"https://abcnews.go.com/",'Forbes':"https://www.forbes.com/news/#2b1705b73690",'Yahoo':"https://news.yahoo.com/",'BBC':"https://www.bbc.com/news//world"}
