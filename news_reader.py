@@ -8,11 +8,13 @@ def headline_print(sources):
         sources {dictionary} -- includes the websites as keys and the links to their US news pages as values
     """
     for key in sources.keys():
+        # RFE: Stop model from occasionally returning headline image links instead of texts 
         params = {
             'api_key': "1fc24350-2367-11ea-ba09-0d75f508bf15",
             'url': sources[key],
             'model_id': "Kb5ZKF13"
         }
+        # CRED: https://dashblock.com/
         response = requests.get(
             'https://api.dashblock.io/model/v1', params=params)
         json_data = response.text
@@ -20,6 +22,7 @@ def headline_print(sources):
         if json_parsed['entities'] == None:
             continue
         print(f"News by {key}")
+        # FIXME: Prints number of headline incorrectly when there are different types of headlines for the same source
         for number, video in enumerate(json_parsed['entities'][:5]):
             if isinstance(video['headline'], list):
                 for num, headlines in enumerate(video['headline'][:5]):
